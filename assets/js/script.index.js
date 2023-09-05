@@ -181,7 +181,7 @@ function displayBasicInformation(){
     let showBasic = "";
     personList.personList.forEach(person => {
         showBasic += `
-        <div class="contacts">
+        <div class="contacts" onclick="displayFullInformation()">
         <img src="${person.imgLink}" alt="${person.name}" class="personImg">
         <div class="personBasic">
         <p class="personName">${person.name}</p>
@@ -192,4 +192,35 @@ function displayBasicInformation(){
     `;
 });
     document.getElementById("contacts-area").innerHTML = showBasic;
+}
+
+function displayFullInformation(){
+    let showFull = "";
+    personList.personList.forEach(person => {
+        showFull += `
+        <div class="aside-content">
+        <p>detalhes</p>
+        <img src="${person.imgLink}" alt="${person.name}" class="detailImg">
+        <div class="personBasic">
+            <p class="personDetailinfo">${person.name}</p>
+            <p class="personDetailinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
+            <p class="personDetailinfo">Telefone Celular: ${person.mobilePhoneFormated}</p>
+            <p class="personDetailinfo">Data de Nascimento: ${person.dateFormated}</p>
+            <p class="personDetailinfo">Idade: ${person.age}</p>
+            <p class="personDetailinfo">Signo: ${person.zodiac}</p>
+            <p class="personDetailinfo">Email: ${person.email} </p>
+            <p class="personDetailinfo">CEP:  ${person.cep}</p>
+            <p class="personDetailinfo">Cidade:  ${person.city}</p>
+            <p class="personDetailinfo">Instagram:  ${person.instagram}</p>
+            <p class="personDetailinfo">GitHub:  ${person.git}</p>
+        </div>
+        <div class="contactbuttons">
+           <a href="https://web.whatsapp.com/" target="_blank"> <i class="fa-brands fa-whatsapp"></i></a>
+           <a href="https://www.instagram.com/${person.instagram}" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
+           <a href="https://github.com/${person.git}" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+    `;
+});
+    document.getElementById("aside").innerHTML = showFull;
 }
