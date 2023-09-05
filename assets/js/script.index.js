@@ -12,6 +12,9 @@ class Person {
         this.git = git;
         this.age = this.calculateAge();
         this.dateFormated = this.dateinPTBR();
+        this.zodiac = getZodiacSign(this.date);
+        this.fixedPhoneFormated = this.formatedFixedphone();
+        this.mobilePhoneFormated = this.formatedCellphone();
     }
     calculateAge() {
         let petBirthdate = this.date
@@ -31,6 +34,24 @@ class Person {
 
         return dateFormated;
     }
+    formatedCellphone() {
+        let cellphoneArray = this.mobilePhone.split("");
+        let cellphoneFormated = "(" + cellphoneArray[0] + cellphoneArray[1] + ")"
+            + " " + cellphoneArray[2] + cellphoneArray[3] + cellphoneArray[4]
+            + cellphoneArray[5] + cellphoneArray[6] + "-"
+            + cellphoneArray[7] + cellphoneArray[8]
+            + cellphoneArray[9] + cellphoneArray[10];
+        return cellphoneFormated;
+    }
+    formatedFixedphone() {
+        let cellphoneArray = this.fixedPhone.split("");
+        let cellphoneFormated = "(" + cellphoneArray[0] + cellphoneArray[1] + ")"
+            + " " + cellphoneArray[2] + cellphoneArray[3] + cellphoneArray[4]
+            + cellphoneArray[5] + cellphoneArray[6] + "-"
+            + cellphoneArray[7] + cellphoneArray[8]
+            + cellphoneArray[9] + cellphoneArray[10];
+        return cellphoneFormated;
+    }
 }
 
 class PersonList {
@@ -40,11 +61,12 @@ class PersonList {
     addPerson(person) {
         if (!getInputs()) {
             sendMsg("Preencha todos os campos", "error")
-        }else if (!isURLValida()) {
+        } else if (!isURLValida()) {
             sendMsg("Imagen esta com formato errado", "error")
-        }  else {
+        } else {
             this.personList.push(person);
             sendMsg("Adicionado com sucesso", "success");
+            console.log(this.personList);
         }
     }
 }
@@ -108,3 +130,34 @@ function isURLValida() {
     }
 }
 
+function getZodiacSign(date) {
+    let birthdate = new Date(date);
+    let day = birthdate.getDate();
+    let month = birthdate.getMonth() + 1;
+
+    if ((month == 1 && day <= 20) || (month == 12 && day >= 22)) {
+        return "Capricórnio ♑";
+    } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+        return "Aquário ♒";
+    } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+        return "Peixes ♓";
+    } else if ((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+        return "Áries ♈";
+    } else if ((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+        return "Touro ♉";
+    } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+        return "Gêmeos ♊";
+    } else if ((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+        return "Câncer ♋";
+    } else if ((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+        return "Leão ♌";
+    } else if ((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+        return "Virgem ♍";
+    } else if ((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+        return "Libra ♎";
+    } else if ((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+        return "Escorpião ♏";
+    } else if ((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+        return "Sagitário ♐";
+    }
+}

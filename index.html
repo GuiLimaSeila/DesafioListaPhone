@@ -13,16 +13,16 @@
     <h2>Lista Telefonica</h2>
     <main>
     <div id="inpts-area">
-        <input type="text" placeholder="Nome Completo" id="full-name">
-        <input type="text" placeholder="Telefone Fixo" id="fixed-phone">
-        <input type="text" placeholder="Telefone Celular" id="mobile-phone">
-        <input type="text" placeholder="URL da Foto" id="imgURL">
-        <input type="date" id="date">
-        <input type="text" placeholder="Email" id="email">
-        <input type="text" placeholder="CEP" id="cep">
-        <input type="text" placeholder="Cidade" id="city">
-        <input type="text" placeholder="@instagram" id="instagram">
-        <input type="text" placeholder="@GitHub" id="git">
+        <input type="text" placeholder="Nome Completo" id="full-name" required>
+        <input type="number" placeholder="Telefone Fixo" id="fixed-phone" maxlength="11" required>
+        <input type="number" placeholder="Telefone Celular" id="mobile-phone" maxlength="11" required>
+        <input type="text" placeholder="URL da Foto" id="imgURL" required>
+        <input type="date" id="date" required>
+        <input type="text" placeholder="Email" id="email" required>
+        <input type="text" placeholder="CEP" id="cep" required>
+        <input type="text" placeholder="Cidade" id="city" required>
+        <input type="text" placeholder="@instagram" id="instagram" required>
+        <input type="text" placeholder="@GitHub" id="git" required>
         <button onclick="addPerson()" id="addBtn">Adicionar Contato</button>
         <div id="msgDiv"></div>
     </div>
