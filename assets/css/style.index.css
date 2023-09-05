@@ -167,3 +167,10 @@ aside{
     padding: 10px;
     margin-bottom: 10px;
 }
+
+#post-area{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 450px;
+}
