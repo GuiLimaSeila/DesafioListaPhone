@@ -11,18 +11,24 @@
 
 <body>
     <h2>Lista Telefonica</h2>
+    <main>
     <div id="inpts-area">
-        <input type="text" placeholder="Nome Completo">
-        <input type="text" placeholder="Telefone Fixo">
-        <input type="text" placeholder="Telefone Celular">
-        <input type="text" placeholder="URL da Foto">
-        <input type="date">
-        <input type="text" placeholder="Email">
-        <input type="text" placeholder="CEP">
-        <input type="text" placeholder="Cidade">
-        <input type="text" placeholder="@instagram">
-        <input type="text" placeholder="@GitHub">
-
+        <input type="text" placeholder="Nome Completo" id="full-name">
+        <input type="text" placeholder="Telefone Fixo" id="fixed-phone">
+        <input type="text" placeholder="Telefone Celular" id="mobile-phone">
+        <input type="text" placeholder="URL da Foto" id="imgURL">
+        <input type="date" id="date">
+        <input type="text" placeholder="Email" id="email">
+        <input type="text" placeholder="CEP" id="cep">
+        <input type="text" placeholder="Cidade" id="city">
+        <input type="text" placeholder="@instagram" id="instagram">
+        <input type="text" placeholder="@GitHub" id="github">
+        <button onclick="test()" id="addBtn">Adicionar Contato</button>
+    </div>
+    <aside id="aside">
+    </aside>
+</main>
+    <div id="contacts-area">
     </div>
 </body>
 
