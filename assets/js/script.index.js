@@ -185,10 +185,11 @@ function displayBasicInformation(){
         <img src="${person.imgLink}" alt="${person.name}" class="personImg">
         <div class="personBasic">
         <p class="personName">${person.name}</p>
-        <p class="personFixedNumber">Telefone Fixo: ${person.fixedPhoneFormated}</p>
-        <p class="personCellNumber">Telefone Celular:${person.mobilePhoneFormated}</p>
+        <p class="personBasicinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
+        <p class="personBasicinfo">Telefone Celular:${person.mobilePhoneFormated}</p>
     </div>
-    `
+    </div>
+    `;
 });
     document.getElementById("contacts-area").innerHTML = showBasic;
 }

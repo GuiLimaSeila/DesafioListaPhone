@@ -8,10 +8,10 @@
 }
 
 body {
-background-color: #eeeeee;
+    background-color: #eeeeee;
 }
 
-h2{
+h2 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #333333;
@@ -28,29 +28,33 @@ h2{
     flex-direction: column;
 }
 
-#addBtn{
+#addBtn {
     background-color: #0806a3;
     color: #fff;
     border: none;
     padding: 2px;
 }
-.error{
+
+.error {
     color: red;
     font-size: 0.8rem;
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
 }
-.success{
+
+.success {
     color: green;
     font-size: 0.8rem;
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
 }
-.personImg{
-border-radius: 100%;
-width: 100px;
+
+.personImg {
+    border-radius: 100%;
+    width: 100px;
 }
-#contacts-area{
+
+#contacts-area {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -58,34 +62,73 @@ width: 100px;
     align-items: center;
     flex-direction: column;
 }
-.contacts{
+
+.contacts {
     width: 55%;
     display: flex;
     padding: 10px;
     background-color: #fff;
+    margin-bottom: 10px;
 }
-.personBasic{
+
+.personBasic {
     width: 100%;
     display: flex;
     flex-direction: column;
-padding-left: 20px;
+    padding-left: 20px;
 }
-.personName{
+
+.personName {
     font-size: 1.2rem;
     font-weight: 600;
     color: #333333;
     margin-bottom: 0.5rem;
+}
 
-}
-.personFixedNumber{
+.personBasicinfo {
     font-size: 1rem;
     font-weight: 400;
     color: #333333;
     margin-bottom: 0.5rem;
 }
-.personCellNumber{
-    font-size: 1rem;
+
+.personDetailinfo {
     font-weight: 400;
     color: #333333;
-    margin-bottom: 0.5rem;
+}
+
+main {
+    width: 100%;
+    display: flex;
+}
+
+.detailImg {
+    width: 60%;
+    display: flex;
+    border-radius: 100%;
+}
+
+.aside-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff
+}
+.contactbuttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0806a3;
 }
