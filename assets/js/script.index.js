@@ -1,5 +1,6 @@
+
 class Person {
-    constructor(name, fixedPhone, mobilePhone, imgLink, date, email, cep, city, instagram, git) {
+    constructor(name, fixedPhone, mobilePhone, imgLink, date, email, cep, city, instagram, git,) {
         this.name = name;
         this.fixedPhone = fixedPhone;
         this.mobilePhone = mobilePhone;
@@ -15,6 +16,8 @@ class Person {
         this.zodiac = getZodiacSign(this.date);
         this.fixedPhoneFormated = this.formatedFixedphone();
         this.mobilePhoneFormated = this.formatedCellphone();
+        this.id = this.generateId();
+
     }
     calculateAge() {
         let petBirthdate = this.date
@@ -51,6 +54,9 @@ class Person {
             + cellphoneArray[7] + cellphoneArray[8]
             + cellphoneArray[9] + cellphoneArray[10];
         return cellphoneFormated;
+    }
+    generateId() {
+        return Math.floor(Math.random() * 3000);
     }
 }
 
@@ -177,11 +183,11 @@ function getZodiacSign(date) {
     }
 }
 
-function displayBasicInformation(){
+function displayBasicInformation() {
     let showBasic = "";
     personList.personList.forEach(person => {
         showBasic += `
-        <div class="contacts" onclick="displayFullInformation()">
+        <div class="contacts" onclick="displayFullInformation(${person.id})">
         <img src="${person.imgLink}" alt="${person.name}" class="personImg">
         <div class="personBasic">
         <p class="personName">${person.name}</p>
@@ -190,17 +196,21 @@ function displayBasicInformation(){
     </div>
     </div>
     `;
-});
+    });
     document.getElementById("contacts-area").innerHTML = showBasic;
 }
 
-function displayFullInformation(){
+function displayFullInformation(id) {
+
+    let person = personList.personList.filter(person => person.id == id);
+
     let showFull = "";
     personList.personList.forEach(person => {
         showFull += `
         <div class="aside-content">
         <p>detalhes</p>
         <img src="${person.imgLink}" alt="${person.name}" class="detailImg">
+        <p>Identificação: ${person.id}</p>
         <div class="personBasic">
             <p class="personDetailinfo">${person.name}</p>
             <p class="personDetailinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
@@ -221,6 +231,9 @@ function displayFullInformation(){
         </div>
     </div>
     `;
-});
+    });
     document.getElementById("aside").innerHTML = showFull;
+
+
 }
+
