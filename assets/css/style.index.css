@@ -33,3 +33,15 @@ h2{
     border: none;
     padding: 2px;
 }
+.error{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+.sucess{
+    color: green;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}

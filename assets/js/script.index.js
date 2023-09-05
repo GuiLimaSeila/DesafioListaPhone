@@ -1,5 +1,5 @@
-class Person{
-    constructor(name, fixedPhone, mobilePhone, imgLink, date, email, cep, city, instagram, git){
+class Person {
+    constructor(name, fixedPhone, mobilePhone, imgLink, date, email, cep, city, instagram, git) {
         this.name = name;
         this.fixedPhone = fixedPhone;
         this.mobilePhone = mobilePhone;
@@ -28,24 +28,25 @@ class Person{
         let dateArray = this.date.split("-");
         let dateReversed = dateArray.reverse();
         let dateFormated = dateReversed.join("/");
-    
+
         return dateFormated;
     }
 }
 
-class PersonList{
-    constructor(){
+class PersonList {
+    constructor() {
         this.personList = [];
     }
-    addPerson(person){
-        if(getInputs()){
+    addPerson(person) {
+        if (getInputs()) {
             sendMsg("Preencha todos os campos", "error")
+        } else {
+            this.personList.push(person);
         }
-        this.personList.push(person);
     }
 }
 
-function getInputs(){
+function getInputs() {
     let name = document.getElementById("full-name").value;
     let fixedPhone = document.getElementById("fixed-phone").value;
     let mobilePhone = document.getElementById("mobile-phone").value;
@@ -57,10 +58,26 @@ function getInputs(){
     let instagram = document.getElementById("instagram").value;
     let git = document.getElementById("git").value;
 
-    if(name == "" || fixedPhone == "" || mobilePhone == "" || imgLink == "" || date == "" || email == "" || cep == "" || city == "" || instagram == "" || git == ""){
-        return false;} else {
-            return true;
-        }
+    if (name == "" || fixedPhone == "" || mobilePhone == "" || imgLink == "" || date == "" || email == "" || cep == "" || city == "" || instagram == "" || git == "") {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 const personList = new PersonList();
+
+function sendMsg(msg, type) {
+    let msgDiv = document.getElementById("msgDiv");
+    msgDiv.innerHTML = '';
+    const msgDisplay = `
+<p class="${typeMsg}">${msg}</p>
+`
+    msgDiv.innerHTML = msgDisplay;
+
+    setTimeout(function () {
+        msgDiv.innerHTML = '';
+    }, 4000);
+
+}
+
