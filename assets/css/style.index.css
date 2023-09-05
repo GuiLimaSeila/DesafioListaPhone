@@ -25,6 +25,7 @@ h2{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #addBtn{
@@ -39,7 +40,7 @@ h2{
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
 }
-.sucess{
+.success{
     color: green;
     font-size: 0.8rem;
     margin-top: 0.2rem;

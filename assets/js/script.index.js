@@ -38,7 +38,7 @@ class PersonList {
         this.personList = [];
     }
     addPerson(person) {
-        if (getInputs()) {
+        if (!getInputs()) {
             sendMsg("Preencha todos os campos", "error")
         }else if (!isURLValida()) {
             sendMsg("Imagen esta com formato errado", "error")
@@ -100,7 +100,7 @@ function sendMsg(msg, type) {
 
 }
 function isURLValida() {
-    let imgLink = document.getElementById("input-image").value
+    let imgLink = document.getElementById("imgURL").value
     if (imgLink.match(/\.(jpeg|jpg|gif|png)$/) != null) {
         return true;
     } else {
