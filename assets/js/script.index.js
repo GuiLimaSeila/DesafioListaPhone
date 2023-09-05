@@ -193,6 +193,7 @@ function displayBasicInformation() {
         <p class="personName">${person.name}</p>
         <p class="personBasicinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
         <p class="personBasicinfo">Telefone Celular:${person.mobilePhoneFormated}</p>
+        <button class="favorityBtn" onclick="favoritPerson(${person.id})"><i class="fa-solid fa-heart"></i></button>
     </div>
     </div>
     `;
@@ -202,10 +203,9 @@ function displayBasicInformation() {
 
 function displayFullInformation(id) {
 
-    let person = personList.personList.filter(person => person.id == id);
-
     let showFull = "";
-    personList.personList.forEach(person => {
+    personList.personList.filter(person => {
+if(person.id == id){
         showFull += `
         <div class="aside-content">
         <p>detalhes</p>
@@ -225,15 +225,67 @@ function displayFullInformation(id) {
             <p class="personDetailinfo">GitHub:  ${person.git}</p>
         </div>
         <div class="contactbuttons">
-           <a href="https://web.whatsapp.com/" target="_blank"> <i class="fa-brands fa-whatsapp"></i></a>
+           <a href="https://web.whatsapp.com/${person.mobilePhone}" target="_blank"> <i class="fa-brands fa-whatsapp"></i></a>
            <a href="https://www.instagram.com/${person.instagram}" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
            <a href="https://github.com/${person.git}" target="_blank"><i class="fa-brands fa-github"></i></a>
         </div>
+        <div class="contactbuttons">
+        <button class="deleteBtn" onclick="deletePerson(${person.id})"><i class="fa-solid fa-trash"></i></button>
+        <button class="editeBtn" onclick="editPerson(${person.id})"><i class="fa-solid fa-edit"></i></button>
+        </div
     </div>
-    `;
+    `
+}
     });
     document.getElementById("aside").innerHTML = showFull;
+}
 
+function favoritPerson(id){
+    let showFavorit = "";
+    personList.personList.filter(person => {
+        if(person.id == id){
+            showFavorit += `
+            <div class="contacts" onclick="displayFullInformation(${person.id})">
+        <img src="${person.imgLink}" alt="${person.name}" class="personImg">
+        <div class="personBasic">
+        <p class="personName">${person.name}</p>
+        <p class="personBasicinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
+        <p class="personBasicinfo">Telefone Celular:${person.mobilePhoneFormated}</p>
+<h2>Favorito</h2>
+    </div>
+    </div>
+            `
 
 }
+});
+document.getElementById("favorit-area").innerHTML = showFavorit;
+}
+
+function deletePerson(id){
+    personList.personList = personList.personList.filter(person => person.id != id)
+    displayBasicInformation();
+    displayFullInformation();
+    sendMsg("Contato deletado com sucesso", "success");
+}
+
+function editPerson(id){
+    personList.personList.filter(person => {
+        if(person.id == id){
+document.getElementById("full-name").value = person.name;
+document.getElementById("fixed-phone").value = person.fixedPhone;
+document.getElementById("mobile-phone").value = person.mobilePhone;
+document.getElementById("imgURL").value = person.imgLink;
+document.getElementById("date").value = person.date;
+document.getElementById("email").value = person.email;
+document.getElementById("cep").value = person.cep;
+document.getElementById("city").value = person.city;
+document.getElementById("instagram").value = person.instagram;
+document.getElementById("git").value = person.git;
+        }
+    });
+    deletePerson(id)
+}
+
+    
+
 

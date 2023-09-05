@@ -143,3 +143,27 @@ aside{
     flex-direction: row;
     flex-wrap: wrap;
 }
+.favorityBtn{
+    background-color: #0806a3;
+    color: #fff;
+    border: none;
+    padding: 1px;
+    margin-bottom: 10px;
+}
+.deleteBtn{
+    background-color: #0806a3;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.editeBtn{
+    background-color: #0806a3;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
