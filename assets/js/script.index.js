@@ -66,9 +66,24 @@ class PersonList {
         } else {
             this.personList.push(person);
             sendMsg("Adicionado com sucesso", "success");
+            displayBasicInformation()
             console.log(this.personList);
+            clearInputs()
         }
     }
+}
+
+function clearInputs() {
+    document.getElementById("full-name").value = "";
+    document.getElementById("fixed-phone").value = "";
+    document.getElementById("mobile-phone").value = "";
+    document.getElementById("imgURL").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("cep").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("instagram").value = "";
+    document.getElementById("git").value = "";
 }
 
 function getInputs() {
@@ -160,4 +175,20 @@ function getZodiacSign(date) {
     } else if ((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
         return "Sagitário ♐";
     }
+}
+
+function displayBasicInformation(){
+    let showBasic = "";
+    personList.personList.forEach(person => {
+        showBasic += `
+        <div class="contacts">
+        <img src="${person.imgLink}" alt="${person.name}" class="personImg">
+        <div class="personBasic">
+        <p class="personName">${person.name}</p>
+        <p class="personFixedNumber">Telefone Fixo: ${person.fixedPhoneFormated}</p>
+        <p class="personCellNumber">Telefone Celular:${person.mobilePhoneFormated}</p>
+    </div>
+    `
+});
+    document.getElementById("contacts-area").innerHTML = showBasic;
 }
