@@ -133,8 +133,8 @@ function sendMsg(msg, type) {
     let msgDiv = document.getElementById("msgDiv");
     msgDiv.innerHTML = '';
     const msgDisplay = `
-<p class="${type}">${msg}</p>
-`
+            <p class="${type}">${msg}</p>
+            `
     msgDiv.innerHTML = msgDisplay;
 
     setTimeout(function () {
@@ -188,13 +188,13 @@ function displayBasicInformation() {
     personList.personList.forEach(person => {
         showBasic += `
         <div class="contacts" onclick="displayFullInformation(${person.id})">
-        <img src="${person.imgLink}" alt="${person.name}" class="personImg">
-        <div class="personBasic">
-        <p class="personName">${person.name}</p>
-        <p class="personBasicinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
-        <p class="personBasicinfo">Telefone Celular:${person.mobilePhoneFormated}</p>
-        <button class="favorityBtn" onclick="favoritPerson(${person.id})"><i class="fa-solid fa-heart"></i></button>
-    </div>
+            <img src="${person.imgLink}" alt="${person.name}" class="personImg">
+            <div class="personBasic">
+            <p class="personName">${person.name}</p>
+            <p class="personBasicinfo">Telefone Fixo: ${person.fixedPhoneFormated}</p>
+            <p class="personBasicinfo">Telefone Celular:${person.mobilePhoneFormated}</p>
+            <button class="favorityBtn" onclick="favoritPerson(${person.id})"><i class="fa-solid fa-heart"></i></button>
+        </div>
     </div>
     `;
     });
@@ -271,16 +271,16 @@ function deletePerson(id){
 function editPerson(id){
     personList.personList.filter(person => {
         if(person.id == id){
-document.getElementById("full-name").value = person.name;
-document.getElementById("fixed-phone").value = person.fixedPhone;
-document.getElementById("mobile-phone").value = person.mobilePhone;
-document.getElementById("imgURL").value = person.imgLink;
-document.getElementById("date").value = person.date;
-document.getElementById("email").value = person.email;
-document.getElementById("cep").value = person.cep;
-document.getElementById("city").value = person.city;
-document.getElementById("instagram").value = person.instagram;
-document.getElementById("git").value = person.git;
+        document.getElementById("full-name").value = person.name;
+        document.getElementById("fixed-phone").value = person.fixedPhone;
+        document.getElementById("mobile-phone").value = person.mobilePhone;
+        document.getElementById("imgURL").value = person.imgLink;
+        document.getElementById("date").value = person.date;
+        document.getElementById("email").value = person.email;
+        document.getElementById("cep").value = person.cep;
+        document.getElementById("city").value = person.city;
+        document.getElementById("instagram").value = person.instagram;
+        document.getElementById("git").value = person.git;
         }
     });
     deletePerson(id)
