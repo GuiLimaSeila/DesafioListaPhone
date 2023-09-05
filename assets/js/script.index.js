@@ -40,8 +40,11 @@ class PersonList {
     addPerson(person) {
         if (getInputs()) {
             sendMsg("Preencha todos os campos", "error")
-        } else {
+        }else if (!isURLValida()) {
+            sendMsg("Imagen esta com formato errado", "error")
+        }  else {
             this.personList.push(person);
+            sendMsg("Adicionado com sucesso", "success");
         }
     }
 }
@@ -67,11 +70,27 @@ function getInputs() {
 
 const personList = new PersonList();
 
+function addPerson() {
+    let name = document.getElementById("full-name").value;
+    let fixedPhone = document.getElementById("fixed-phone").value;
+    let mobilePhone = document.getElementById("mobile-phone").value;
+    let imgLink = document.getElementById("imgURL").value;
+    let date = document.getElementById("date").value;
+    let email = document.getElementById("email").value;
+    let cep = document.getElementById("cep").value;
+    let city = document.getElementById("city").value;
+    let instagram = document.getElementById("instagram").value;
+    let git = document.getElementById("git").value;
+
+    const person = new Person(name, fixedPhone, mobilePhone, imgLink, date, email, cep, city, instagram, git);
+    personList.addPerson(person);
+}
+
 function sendMsg(msg, type) {
     let msgDiv = document.getElementById("msgDiv");
     msgDiv.innerHTML = '';
     const msgDisplay = `
-<p class="${typeMsg}">${msg}</p>
+<p class="${type}">${msg}</p>
 `
     msgDiv.innerHTML = msgDisplay;
 
@@ -79,5 +98,13 @@ function sendMsg(msg, type) {
         msgDiv.innerHTML = '';
     }, 4000);
 
+}
+function isURLValida() {
+    let imgLink = document.getElementById("input-image").value
+    if (imgLink.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
