@@ -32,3 +32,35 @@ class Person{
         return dateFormated;
     }
 }
+
+class PersonList{
+    constructor(){
+        this.personList = [];
+    }
+    addPerson(person){
+        if(getInputs()){
+            sendMsg("Preencha todos os campos", "error")
+        }
+        this.personList.push(person);
+    }
+}
+
+function getInputs(){
+    let name = document.getElementById("full-name").value;
+    let fixedPhone = document.getElementById("fixed-phone").value;
+    let mobilePhone = document.getElementById("mobile-phone").value;
+    let imgLink = document.getElementById("imgURL").value;
+    let date = document.getElementById("date").value;
+    let email = document.getElementById("email").value;
+    let cep = document.getElementById("cep").value;
+    let city = document.getElementById("city").value;
+    let instagram = document.getElementById("instagram").value;
+    let git = document.getElementById("git").value;
+
+    if(name == "" || fixedPhone == "" || mobilePhone == "" || imgLink == "" || date == "" || email == "" || cep == "" || city == "" || instagram == "" || git == ""){
+        return false;} else {
+            return true;
+        }
+}
+
+const personList = new PersonList();
