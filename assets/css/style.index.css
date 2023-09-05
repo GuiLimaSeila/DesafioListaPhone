@@ -46,3 +46,46 @@ h2{
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
 }
+.personImg{
+border-radius: 100%;
+width: 100px;
+}
+#contacts-area{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contacts{
+    width: 55%;
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+}
+.personBasic{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+padding-left: 20px;
+}
+.personName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.5rem;
+
+}
+.personFixedNumber{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+.personCellNumber{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
